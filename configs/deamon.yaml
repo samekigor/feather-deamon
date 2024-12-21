@@ -1,0 +1,3 @@
+filepaths:
+  logs: "/var/log/feather-deamon.log"
+  socket: "/var/run/feather.sock"
