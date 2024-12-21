@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/samekigor/feather-deamon/internal/utils/logger"
+	"github.com/samekigor/feather-deamon/internal"
 )
 
 func main() {
-	logger.SetupLogging()
-
+	internal.InitEnv()
+	internal.SetupLogging()
 }
