@@ -3,14 +3,12 @@ package internal
 import (
 	"log"
 	"os"
-
-	"github.com/spf13/viper"
 )
 
 func SetupLogging() {
-	filePath := viper.GetString("LOG_FILE_PATH")
+	filePath := GetValueFromConfig("filepaths.logs")
 	if filePath == "" {
-		log.Panicf("LOG_FILE_PATH is not set in configuration")
+		log.Panicf("filepaths.logs not defined in config yaml")
 	}
 	logFile, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {

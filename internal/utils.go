@@ -2,16 +2,23 @@ package internal
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/spf13/viper"
 )
 
-func InitEnv() {
+func GetEnv(envVar string) (envVal string) {
 	viper.SetEnvPrefix("FEATHER")
 	viper.AutomaticEnv()
+	envVal = viper.GetString(envVar)
+	if envVal == "" {
+		log.Fatalf("Env variable={%s} not found", envVar)
+	}
+	return envVal
 }
 
-func LoadConfigFile(configPath string) {
+func LoadConfigFile() {
+	configPath := GetEnv("CONFIG_FILE_PATH")
 	viper.SetConfigFile(configPath)
 	err := viper.ReadInConfig()
 	if err != nil {

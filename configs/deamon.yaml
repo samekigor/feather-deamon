@@ -1,3 +1,4 @@
 filepaths:
-  logs: "/var/log/feather-deamon.log"
+  # logs: "/var/log/feather-deamon.log"
+  logs: "/home/igor/repos/feather-deamon/feather-deamon.log"
   socket: "/var/run/feather.sock"
