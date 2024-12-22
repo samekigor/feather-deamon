@@ -1,4 +1,4 @@
-package internal
+package config
 
 import (
 	"fmt"
@@ -7,8 +7,24 @@ import (
 	"github.com/spf13/viper"
 )
 
+type EnvVarsDetails struct {
+	Prefix string
+}
+
+type ConfigFileDetails struct {
+	ConfigFilePath string
+}
+
+var envVarsDetails = EnvVarsDetails{
+	Prefix: "FEATHER",
+}
+
+var configFileDetails = ConfigFileDetails{
+	ConfigFilePath: GetEnv("CONFIG_FILE_PATH"),
+}
+
 func GetEnv(envVar string) (envVal string) {
-	viper.SetEnvPrefix("FEATHER")
+	viper.SetEnvPrefix(envVarsDetails.Prefix)
 	viper.AutomaticEnv()
 	envVal = viper.GetString(envVar)
 	if envVal == "" {
@@ -18,7 +34,7 @@ func GetEnv(envVar string) (envVal string) {
 }
 
 func LoadConfigFile() {
-	configPath := GetEnv("CONFIG_FILE_PATH")
+	configPath := configFileDetails.ConfigFilePath
 	viper.SetConfigFile(configPath)
 	err := viper.ReadInConfig()
 	if err != nil {
