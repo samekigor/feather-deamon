@@ -7,30 +7,30 @@ import (
 	"github.com/samekigor/feather-deamon/internal/config"
 )
 
-type Logger struct {
+type LoggerDetails struct {
 	filePath string
 	logFile  os.File
 }
 
-var loggerInfo Logger
+var loggerDetails LoggerDetails
 
 func SetupLogging() {
-	filePath := config.GetValueFromConfig("filepaths.logs")
+	filePath := config.GetValueFromConfig("logger.path")
 	if filePath == "" {
 		log.Panicf("filepaths.logs not defined in config yaml")
 	}
-	logFile, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0622)
+	logFile, err := os.OpenFile(filePath, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Panicf("Failed to open log file: %v", err)
 	}
 	log.SetOutput(logFile)
 
-	loggerInfo.filePath = filePath
-	loggerInfo.logFile = *logFile
+	loggerDetails.filePath = filePath
+	loggerDetails.logFile = *logFile
 
 }
 
 func CloseLogging() {
-	log.Printf("Closeing logging file: %s", loggerInfo.filePath)
-	loggerInfo.logFile.Close()
+	log.Printf("Closeing logging file: %s", loggerDetails.filePath)
+	loggerDetails.logFile.Close()
 }

@@ -2,6 +2,6 @@
 
 source ./scripts/set-default-envs.sh
 
-make build -o cmd/main.go
+make build
 
 ./bin/main
