@@ -17,7 +17,6 @@ func main() {
 	go socket.StartUnixSocketServer()
 
 	go socket.HandleSignals()
-
 	for {
 		log.Println("Running...")
 		time.Sleep(1 * time.Second)
