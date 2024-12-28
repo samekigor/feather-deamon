@@ -1,6 +1,10 @@
+default-system-dir:
+  path: "/var/lib/feather"
 logger:
   # logs: "/var/log/feather-deamon.log"
   path: "/home/igor/repos/feather-deamon/feather-deamon.log"
   max-lines: 150
 socket:
   path: "/var/run/feather.sock"
+oci:
+  layout-root-dir-name: "oci-layout-root"

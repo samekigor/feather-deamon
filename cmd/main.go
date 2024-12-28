@@ -14,8 +14,6 @@ func main() {
 	logger.SetupLogging()
 	defer logger.CloseLogging()
 
-	go socket.StartUnixSocketServer()
-
 	go socket.HandleSignals()
 	for {
 		log.Println("Running...")
