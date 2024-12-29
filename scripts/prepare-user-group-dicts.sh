@@ -15,12 +15,13 @@
 FEATHER_USER="feather"
 FEATHER_GROUP="feather"
 
-sudo groupadd $FEATHER_GROUP
+
 
 if getent group "$FEATHER_GROUP" > /dev/null 2>&1; then
     echo "Group $FEATHER_GROUP exists"
 else
     if groupadd "$FEATHER_GROUP"; then
+        sudo groupadd $FEATHER_GROUP
         echo "Created group $FEATHER_GROUP."
     else
         echo "Failutre with creation $FEATHER_GROUP."
