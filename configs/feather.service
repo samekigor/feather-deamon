@@ -1,0 +1,8 @@
+[Unit]
+Description=Feather's GRPC Unix Socket Server
+After=network.target
+
+[Service]
+ExecStart=
+User=feather
+Group=feather
