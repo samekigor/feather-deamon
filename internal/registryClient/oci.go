@@ -1,4 +1,4 @@
-package registryclient
+package registryClient
 
 import (
 	"log"
@@ -28,5 +28,9 @@ func InitOciLayoutStore() {
 	if err != nil {
 		log.Panicf("Failed to create OCI store: %v", err)
 	}
+
+}
+
+func mountFilesFromImage() {
 
 }

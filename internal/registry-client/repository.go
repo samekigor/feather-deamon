@@ -1,3 +1,0 @@
-package registryclient
-
-// func
