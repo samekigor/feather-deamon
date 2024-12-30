@@ -4,7 +4,7 @@ import (
 	context "context"
 	"log"
 
-	"github.com/samekigor/feather-deamon/internal/proto"
+	"github.com/samekigor/feather-deamon/shared/proto"
 )
 
 func (s *Server) Run(ctx context.Context, in *proto.RunRequest) (*proto.RunResponse, error) {

@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/samekigor/feather-deamon/internal/config"
-	"github.com/samekigor/feather-deamon/internal/proto"
+	"github.com/samekigor/feather-deamon/shared/proto"
 	"google.golang.org/grpc"
 )
 
